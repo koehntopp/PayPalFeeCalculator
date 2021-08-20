@@ -16,7 +16,7 @@ jobs:
       - name: Create artifact
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -X -r build/paypalfeecalculator.zip . -x zip/\* *.git* *.md .replit Archive.zip index.html
+          args: zip -X -r build/paypalfeecalculator.zip . -x zip** build** *.git* *.md .replit Archiv.zip index.html
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:

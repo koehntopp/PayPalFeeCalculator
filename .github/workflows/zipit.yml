@@ -14,9 +14,10 @@ jobs:
       - name: Create artifact
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -X -r build/extension.zip . -x zip/\* *.git* *.md .replit
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
+          args: zip -X -r build/paypalfeecalculator.zip . -x zip/\* *.git* *.md .replit
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-            name: PayPalFeeCalculator
-            path: build/extension.zip
+          args: build/paypalfeecalculator.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

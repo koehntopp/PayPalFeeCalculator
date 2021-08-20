@@ -14,5 +14,5 @@ jobs:
           dest: extension.zip
       - uses: actions/upload-artifact@v1
         with:
-        name: my-artifact
-        path: ${{ github.workspace }}/zip/extension.zip
+          name: my-artifact
+          path: ${{ github.workspace }}/zip/extension.zip

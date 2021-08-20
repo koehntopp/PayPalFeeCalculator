@@ -1,6 +1,8 @@
 name: Zip Files
 
-on: workflow_dispatch
+on: 
+  release:
+    types: [published]
 
 jobs:
   zip-files:
@@ -14,7 +16,7 @@ jobs:
       - name: Create artifact
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -X -r build/paypalfeecalculator.zip . -x zip/\* *.git* *.md .replit
+          args: zip -X -r build/paypalfeecalculator.zip . -x zip/\* *.git* *.md .replit Archive.zip index.html
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:

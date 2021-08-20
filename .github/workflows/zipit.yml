@@ -1,5 +1,7 @@
 name: Zip Files
 
+on: workflow_dispatch
+
 jobs:
   zip-files:
     runs-on: ubuntu-latest

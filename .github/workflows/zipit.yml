@@ -1,10 +1,5 @@
 name: Zip Files
 
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   zip-files:
     runs-on: ubuntu-latest

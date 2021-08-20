@@ -9,6 +9,8 @@ jobs:
       - name: Checkout code 
         uses: actions/checkout@v2
       - name: Create artifact
+        run:
+          mkdir build
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -X -r build/extension.zip . -x zip/\* *.git* *.md .replit

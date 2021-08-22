@@ -1,18 +1,25 @@
 name: Zip Files
 
-on: workflow_dispatch
+on: 
+  release:
+    types: [published]
 
 jobs:
   zip-files:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: papeloto/action-zip@v1
+      - name: Checkout code 
+        uses: actions/checkout@v2
+      - name: Create directory
+        run:
+          mkdir build
+      - name: Create artifact
+        uses: montudor/action-zip@v0.1.0
         with:
-          files: images/ manifest.json Screenshot.png popup.html popup.js w2ui-1.5.min.css w2ui-1.5.min.js
-          recursive: true
-          dest: extension.zip
-      - uses: actions/upload-artifact@v1
+          args: zip -X -r build/paypalfeecalculator.zip . -x zip** build** *.git* *.md .replit Archiv.zip index.html
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-          name: my-artifact
-          path: /zip/extension.zip
+          args: build/paypalfeecalculator.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

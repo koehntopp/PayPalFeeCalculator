@@ -23,3 +23,12 @@ jobs:
           args: build/paypalfeecalculator.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish new version
+        uses: Klemensas/chrome-extension-upload-action@$VERSION
+        with:
+          refresh-token: '${{ secrets.REFRESH_TOKEN }}'
+          client-id: '${{ secrets.CLIENT_ID }}'
+          client-secret: '${{ secrets.CLIENT_SECRET }}'
+          file-name: 'build/paypalfeecalculator.zip'
+          app-id: '${{ secrets.APP_ID }}'
+          publish: true

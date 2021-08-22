@@ -24,7 +24,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish new version
-        uses: Klemensas/chrome-extension-upload-action@v1.4.1
+        uses: Klemensas/chrome-extension-upload-action@master
         with:
           refresh-token: '${{ secrets.REFRESH_TOKEN }}'
           client-id: '${{ secrets.CLIENT_ID }}'

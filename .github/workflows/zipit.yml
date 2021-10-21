@@ -14,7 +14,7 @@ jobs:
         run:
           mkdir build
       - name: Create artifact
-        uses: montudor/action-zip@v0.1.1
+        uses: montudor/action-zip@v1.0.0
         with:
           args: zip -X -r build/paypalfeecalculator.zip . -x zip** build** *.git* *.md .replit Archiv.zip index.html
       - name: Upload to release
